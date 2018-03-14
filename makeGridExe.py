@@ -1,23 +1,5 @@
 import sys, getopt
-
-def printGrid(grid):
-  for row in grid:
-    rowStr = '';
-    for item in row:
-      rowStr = rowStr + item + ' '
-    print(rowStr)
-
-
-def makeGrid(r, c, char):
-  list = []
-  for i in range(c):
-    list.append(char)
-
-  grid = []
-  for i in range(r):
-    grid.append(list[0:])
-
-  printGrid(grid)
+import makeGridFile
 
 
 def makeGridWithOpts(argv):
@@ -34,14 +16,14 @@ def makeGridWithOpts(argv):
     elif opt == '-x':
       x = arg
   
-  makeGrid(r, c, x)
+  makeGridFile.makeGrid(r, c, x)
 
 
 def main(argv):
   if(len(argv) > 0):
     makeGridWithOpts(argv)
   else:
-    makeGrid(5, 5, 'X')
+    makeGridFile.makeGrid(5, 5, 'X')
 
 
 main(sys.argv[1:])
